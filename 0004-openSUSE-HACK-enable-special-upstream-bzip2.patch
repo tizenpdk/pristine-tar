@@ -1,0 +1,56 @@
+From: Markus Lehtonen <markus.lehtonen@linux.intel.com>
+Date: Thu, 16 Aug 2012 14:28:28 +0300
+Subject: openSUSE HACK: enable special upstream bzip2
+
+This is a hack for openSUSE that makes pristine-bz2 use a special
+(pristine-tar-specific) bzip2. Otherwise it uses the system bzip2 which
+is unable to re-create/gendelta bz2 archives created by other
+distributions.
+
+Signed-off-by: Markus Lehtonen <markus.lehtonen@linux.intel.com>
+---
+ Makefile.PL  |    5 +++++
+ pristine-bz2 |    4 +++-
+ 2 files changed, 8 insertions(+), 1 deletions(-)
+
+diff --git a/Makefile.PL b/Makefile.PL
+index d11e396..4d40774 100755
+--- a/Makefile.PL
++++ b/Makefile.PL
+@@ -20,6 +20,8 @@ extra_build: zgz/zgz pristine-tar.spec
+ 	pod2man -c pristine-xz pristine-xz > pristine-xz.1
+ 	pod2man -c zgz zgz/zgz.pod > zgz.1
+ 	make -C pit/suse-bzip2
++	make -C pit/upstream-bzip2
++	sed -i s'|^my $$__upstream_bzip2_prefix.*|my $$__upstream_bzip2_prefix = "$(ZGZ_LIB)/upstream-bzip2/";|' pristine-bz2
+ 
+ ZGZ_SOURCES = zgz/zgz.c zgz/gzip/*.c zgz/old-bzip2/*.c
+ zgz/zgz: $(ZGZ_SOURCES)
+@@ -37,6 +39,9 @@ extra_install:
+ 	install -d $(DESTDIR)$(ZGZ_LIB)/suse-bzip2
+ 	install pit/suse-bzip2/bzip2 $(DESTDIR)$(ZGZ_LIB)/suse-bzip2
+ 	install pit/suse-bzip2/libbz2* $(DESTDIR)$(ZGZ_LIB)/suse-bzip2
++	install -d $(DESTDIR)$(ZGZ_LIB)/upstream-bzip2
++	install pit/upstream-bzip2/bzip2 $(DESTDIR)$(ZGZ_LIB)/upstream-bzip2
++	install pit/upstream-bzip2/libbz2* $(DESTDIR)$(ZGZ_LIB)/upstream-bzip2
+ 
+ extra_clean: pristine-tar.spec
+ 	rm -f *.1 zgz/zgz
+diff --git a/pristine-bz2 b/pristine-bz2
+index 147ad86..dd9690c 100755
+--- a/pristine-bz2
++++ b/pristine-bz2
+@@ -91,7 +91,9 @@ use IO::Handle;
+ delete $ENV{BZIP};
+ delete $ENV{BZIP2};
+ 
+-my @supported_bzip2_programs = qw(bzip2 pbzip2 zgz);
++my $__upstream_bzip2_prefix = "";
++
++my @supported_bzip2_programs = ("${__upstream_bzip2_prefix}bzip2",  "pbzip2", "zgz");
+ 
+ my $try=0;
+ 
+-- 
+1.7.7
+

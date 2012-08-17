@@ -1,0 +1,35 @@
+From: Markus Lehtonen <markus.lehtonen@linux.intel.com>
+Date: Thu, 16 Aug 2012 14:22:36 +0300
+Subject: openSUSE HACK: modify Makefile in upstream-bzip2
+
+To make the (only partially imported) upstream-bzip2 compile.
+
+Signed-off-by: Markus Lehtonen <markus.lehtonen@linux.intel.com>
+---
+ pit/upstream-bzip2/Makefile |    3 +--
+ 1 files changed, 1 insertions(+), 2 deletions(-)
+
+diff --git a/pit/upstream-bzip2/Makefile b/pit/upstream-bzip2/Makefile
+index 9754ddf..d879fcf 100644
+--- a/pit/upstream-bzip2/Makefile
++++ b/pit/upstream-bzip2/Makefile
+@@ -35,7 +35,7 @@ OBJS= blocksort.o  \
+       decompress.o \
+       bzlib.o
+ 
+-all: libbz2.a bzip2 bzip2recover test
++all: libbz2.a bzip2
+ 
+ bzip2: libbz2.a bzip2.o
+ 	$(CC) $(CFLAGS) $(LDFLAGS) -o bzip2 bzip2.o -L. -lbz2
+@@ -114,7 +114,6 @@ clean:
+ 	sample1.tst sample2.tst sample3.tst
+ 
+ blocksort.o: blocksort.c
+-	@cat words0
+ 	$(CC) $(CFLAGS) -c blocksort.c
+ huffman.o: huffman.c
+ 	$(CC) $(CFLAGS) -c huffman.c
+-- 
+1.7.7
+

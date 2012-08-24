@@ -18,7 +18,9 @@ Requires:   perl-base
 Requires:   xdelta
 BuildRequires:  pkgconfig(zlib)
 BuildRequires:  perl(ExtUtils::MakeMaker)
+%if 0%{?suse_version}
 BuildRequires:  fdupes
+%endif
 AutoProv:   no
 
 
@@ -62,7 +64,11 @@ rm -rf %{buildroot}
 %make_install
 
 find %{buildroot}/usr/lib/zgz/ -name '*.a' | xargs rm
+
+# Run fdupes if building in openSUSE
+%if 0%{?suse_version}
 %fdupes -s %{buildroot}/usr/lib/zgz/
+%endif
 
 
 %files

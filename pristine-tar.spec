@@ -21,7 +21,14 @@ BuildRequires:  perl(ExtUtils::MakeMaker)
 %if 0%{?suse_version}
 BuildRequires:  fdupes
 %endif
+
+# Need to define these manually because otherwise rpmbuild makes the package
+# provide libbz2.so which breaks building of other tools
 AutoProv:   no
+Provides: perl(Pristine::Tar)
+Provides: perl(Pristine::Tar::Delta)
+Provides: perl(Pristine::Tar::Delta::Tarball)
+Provides: perl(Pristine::Tar::Formats)
 
 
 %description

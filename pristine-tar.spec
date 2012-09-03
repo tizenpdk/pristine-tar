@@ -11,6 +11,7 @@ Patch0:     0001-Fix-libbz2.so-version-numbers.patch
 Patch1:     0002-openSUSE-HACK-add-upstream-bzip2-v1.0.6-sources.patch
 Patch2:     0003-openSUSE-HACK-modify-Makefile-in-upstream-bzip2.patch
 Patch3:     0004-openSUSE-HACK-enable-special-upstream-bzip2.patch
+Patch4:     0005-Fedora-HACK-use-custom-older-xdelta.patch
 Requires:   gzip
 Requires:   bzip2
 Requires:   git
@@ -19,7 +20,11 @@ Requires:   perl-base
 %else
 Requires:   perl
 %endif
-Requires:   xdelta
+%if 0%{?fedora}
+Requires:   xdelta1
+%else
+Requires:   xdelta < 3
+%endif
 BuildRequires:  pkgconfig(zlib)
 BuildRequires:  perl(ExtUtils::MakeMaker)
 %if 0%{?suse_version}
@@ -60,6 +65,10 @@ control.
 %patch2 -p1
 # 0004-openSUSE-HACK-enable-special-upstream-bzip2.patch
 %patch3 -p1
+%endif
+%if 0%{?fedora}
+# 0005-Fedora-HACK-use-custom-older-xdelta.patch
+%patch4 -p1
 %endif
 
 %build

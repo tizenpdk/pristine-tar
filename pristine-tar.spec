@@ -14,7 +14,11 @@ Patch3:     0004-openSUSE-HACK-enable-special-upstream-bzip2.patch
 Requires:   gzip
 Requires:   bzip2
 Requires:   git
+%if 0%{?suse_version}
 Requires:   perl-base
+%else
+Requires:   perl
+%endif
 Requires:   xdelta
 BuildRequires:  pkgconfig(zlib)
 BuildRequires:  perl(ExtUtils::MakeMaker)

@@ -30,6 +30,3 @@ index 9754ddf..d879fcf 100644
  	$(CC) $(CFLAGS) -c blocksort.c
  huffman.o: huffman.c
  	$(CC) $(CFLAGS) -c huffman.c
--- 
-1.7.7
-

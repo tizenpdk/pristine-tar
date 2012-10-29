@@ -52,6 +52,3 @@ index c75e4fc..b08702b 100755
  	# xdelta exits 1 on success if there were differences
  	if ($ret != 1 && $ret != 0) {
  		error "xdelta failed with return code $ret";
--- 
-1.7.7
-

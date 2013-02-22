@@ -14,6 +14,11 @@ Patch3:     0004-openSUSE-HACK-enable-special-upstream-bzip2.patch
 Patch4:     0005-Fedora-HACK-use-custom-older-xdelta.patch
 Requires:   gzip
 Requires:   bzip2
+%if 0%{?suse_version} >= 1210
+Recommends: pbzip2
+%else
+Requires:   pbzip2
+%endif
 Requires:   git
 %if 0%{?suse_version}
 Requires:   perl-base

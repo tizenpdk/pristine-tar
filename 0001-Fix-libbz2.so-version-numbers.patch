@@ -8,7 +8,7 @@ error from the dynamic linker when trying to run bzip2 from suse-bzip2.
 Signed-off-by: Markus Lehtonen <markus.lehtonen@linux.intel.com>
 ---
  pit/suse-bzip2/Makefile |    4 ++--
- 1 files changed, 2 insertions(+), 2 deletions(-)
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/pit/suse-bzip2/Makefile b/pit/suse-bzip2/Makefile
 index 4960037..0977534 100644

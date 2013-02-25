@@ -5,6 +5,8 @@ Subject: openSUSE HACK: add upstream bzip2 (v1.0.6) sources
 Only take the selected files that are needed. Needed for being able to
 correctly re-create bz2 archives on openSUSE.
 
+Gbp-Rpm-If: 0%{?suse_version}
+
 Signed-off-by: Markus Lehtonen <markus.lehtonen@linux.intel.com>
 ---
  pit/upstream-bzip2/LICENSE         |   42 +
@@ -19,7 +21,7 @@ Signed-off-by: Markus Lehtonen <markus.lehtonen@linux.intel.com>
  pit/upstream-bzip2/decompress.c    |  646 ++++++++++++
  pit/upstream-bzip2/huffman.c       |  205 ++++
  pit/upstream-bzip2/randtable.c     |   84 ++
- 12 files changed, 7461 insertions(+), 0 deletions(-)
+ 12 files changed, 7461 insertions(+)
  create mode 100644 pit/upstream-bzip2/LICENSE
  create mode 100644 pit/upstream-bzip2/Makefile
  create mode 100644 pit/upstream-bzip2/blocksort.c

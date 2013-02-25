@@ -63,16 +63,20 @@ control.
 %setup -q -n %{name}
 # 0001-Fix-libbz2.so-version-numbers.patch
 %patch0 -p1
-%if 0%{?suse_version}
 # 0002-openSUSE-HACK-add-upstream-bzip2-v1.0.6-sources.patch
+%if 0%{?suse_version}
 %patch1 -p1
+%endif
 # 0003-openSUSE-HACK-modify-Makefile-in-upstream-bzip2.patch
+%if 0%{?suse_version}
 %patch2 -p1
+%endif
 # 0004-openSUSE-HACK-enable-special-upstream-bzip2.patch
+%if 0%{?suse_version}
 %patch3 -p1
 %endif
-%if 0%{?fedora}
 # 0005-Fedora-HACK-use-custom-older-xdelta.patch
+%if 0%{?fedora}
 %patch4 -p1
 %endif
 

@@ -1,8 +1,30 @@
-pristine-tar (1.26-0) unstable; urgency=low
+pristine-tar (1.28-0) unstable; urgency=low
 
   * Change to non-native: add RPM packaging files
 
- -- Markus Lehtonen <markus.lehtonen@linux.intel.com>  Mon, 13 May 2013 10:58:55 +0300
+ -- Markus Lehtonen <markus.lehtonen@linux.intel.com>  Mon, 03 Jun 2013 13:30:39 +0300
+
+pristine-tar (1.28) unstable; urgency=low
+
+  * Update lintian overrides.
+
+ -- Joey Hess <joeyh@debian.org>  Sun, 05 May 2013 01:45:27 -0400
+
+pristine-tar (1.27) unstable; urgency=low
+
+  * Now ported to Mac OS X.
+    - MakeFile.PL fixes
+    - zgz: Use DYLD_LIBRARY_PATH on OSX instead of LD_LIBRARY_PATH
+    - suse-bzip2/Makefile: compile shared library appropriately on OSX
+    - INSTALL: Added some options useful when installing on OSX
+    Thanks, Torsten Maehne and Philipp A. Hartmann.
+  * zgz: Don't hardcode /lib, avoid segfaulting when installed in a
+    > 128 character path.
+    Thanks, Colin Walters
+  * Fix typo that led to incorrect error message when pristine-tar
+    branch does not exist. Closes: #700448 Thanks, paul cannon
+
+ -- Joey Hess <joeyh@debian.org>  Sat, 04 May 2013 23:50:40 -0400
 
 pristine-tar (1.26) unstable; urgency=low
 

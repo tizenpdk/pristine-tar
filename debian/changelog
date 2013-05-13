@@ -1,3 +1,9 @@
+pristine-tar (1.26-0) unstable; urgency=low
+
+  * Change to non-native: add RPM packaging files
+
+ -- Markus Lehtonen <markus.lehtonen@linux.intel.com>  Mon, 13 May 2013 10:58:55 +0300
+
 pristine-tar (1.26) unstable; urgency=low
 
   * pristine-xz: Use xz --robot to extract information from xz files,

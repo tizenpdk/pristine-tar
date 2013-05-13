@@ -1,0 +1,22 @@
+From: Markus Lehtonen <markus.lehtonen@linux.intel.com>
+Date: Mon, 13 May 2013 10:36:39 +0300
+Subject: Add .gbp.conf
+
+Needed for gbp-pq-rpm tool.
+
+Change-Id: Idb1677653b08de7763ccaf7fe001267c06ff3109
+Signed-off-by: Markus Lehtonen <markus.lehtonen@linux.intel.com>
+---
+ .gbp.conf |    3 +++
+ 1 file changed, 3 insertions(+)
+ create mode 100644 .gbp.conf
+
+diff --git a/.gbp.conf b/.gbp.conf
+new file mode 100644
+index 0000000..666174f
+--- /dev/null
++++ b/.gbp.conf
+@@ -0,0 +1,3 @@
++[gbp-pq-rpm]
++upstream-tag = %(upstreamversion)s
++packaging-dir = packaging

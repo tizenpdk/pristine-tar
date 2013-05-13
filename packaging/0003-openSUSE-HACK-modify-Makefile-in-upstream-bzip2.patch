@@ -4,8 +4,10 @@ Subject: openSUSE HACK: modify Makefile in upstream-bzip2
 
 To make the (only partially imported) upstream-bzip2 compile.
 
-Gbp-Rpm-If: 0%{?suse_version}
+Gbp-Rpm: If 0%{?suse_version}
+Gbp: Ignore
 
+Change-Id: Id74e43aa3d913d0cb52f3866d5434d5ff92f2aaf
 Signed-off-by: Markus Lehtonen <markus.lehtonen@linux.intel.com>
 ---
  pit/upstream-bzip2/Makefile |    3 +--

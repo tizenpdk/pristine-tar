@@ -12,6 +12,7 @@ Patch1:     0002-openSUSE-HACK-add-upstream-bzip2-v1.0.6-sources.patch
 Patch2:     0003-openSUSE-HACK-modify-Makefile-in-upstream-bzip2.patch
 Patch3:     0004-openSUSE-HACK-enable-special-upstream-bzip2.patch
 Patch4:     0005-Fedora-HACK-use-custom-older-xdelta.patch
+Patch5:     0006-Add-.gbp.conf.patch
 Requires:   gzip
 Requires:   bzip2
 %if 0%{?suse_version} >= 1210
@@ -79,6 +80,8 @@ control.
 %if 0%{?fedora}
 %patch4 -p1
 %endif
+# 0006-Add-.gbp.conf.patch
+%patch5 -p1
 
 %build
 perl Makefile.PL INSTALLDIRS=vendor PREFIX=%{_prefix}

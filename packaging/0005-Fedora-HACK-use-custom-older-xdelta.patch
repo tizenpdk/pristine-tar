@@ -2,8 +2,10 @@ From: Markus Lehtonen <markus.lehtonen@linux.intel.com>
 Date: Mon, 3 Sep 2012 15:21:43 +0300
 Subject: Fedora HACK: use custom (older) xdelta
 
-Gbp-Rpm-If: 0%{?fedora}
+Gbp-Rpm: If 0%{?fedora}
+Gbp: Ignore
 
+Change-Id: Id0658bbc428034aeb38d61cf0245909c38845534
 Signed-off-by: Markus Lehtonen <markus.lehtonen@linux.intel.com>
 ---
  pristine-gz  |    4 ++--

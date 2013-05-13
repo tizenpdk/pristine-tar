@@ -7,8 +7,10 @@ This is a hack for openSUSE that makes pristine-bz2 use a special
 is unable to re-create/gendelta bz2 archives created by other
 distributions.
 
-Gbp-Rpm-If: 0%{?suse_version}
+Gbp-Rpm: If 0%{?suse_version}
+Gbp: Ignore
 
+Change-Id: Icfcbee5207e65820248172152623a4dbf4440131
 Signed-off-by: Markus Lehtonen <markus.lehtonen@linux.intel.com>
 ---
  Makefile.PL  |    5 +++++

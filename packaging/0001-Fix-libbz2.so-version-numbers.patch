@@ -11,7 +11,7 @@ Signed-off-by: Markus Lehtonen <markus.lehtonen@linux.intel.com>
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/pit/suse-bzip2/Makefile b/pit/suse-bzip2/Makefile
-index 4960037..0977534 100644
+index 3e41319..ef3f9d8 100644
 --- a/pit/suse-bzip2/Makefile
 +++ b/pit/suse-bzip2/Makefile
 @@ -12,8 +12,8 @@
@@ -24,4 +24,4 @@ index 4960037..0977534 100644
 +sominor=$(somajor).0.6
  SHELL=/bin/sh
  
- # To assist in cross-compiling
+ # Determine the operating system name to decide whether to build a

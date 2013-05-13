@@ -18,30 +18,30 @@ Signed-off-by: Markus Lehtonen <markus.lehtonen@linux.intel.com>
  2 files changed, 8 insertions(+), 1 deletion(-)
 
 diff --git a/Makefile.PL b/Makefile.PL
-index d11e396..4d40774 100755
+index 60a5103..8a2fe1c 100755
 --- a/Makefile.PL
 +++ b/Makefile.PL
-@@ -20,6 +20,8 @@ extra_build: zgz/zgz pristine-tar.spec
+@@ -59,6 +59,8 @@ extra_build: zgz/zgz pristine-tar.spec
  	pod2man -c pristine-xz pristine-xz > pristine-xz.1
  	pod2man -c zgz zgz/zgz.pod > zgz.1
- 	make -C pit/suse-bzip2
-+	make -C pit/upstream-bzip2
-+	sed -i s'|^my $$__upstream_bzip2_prefix.*|my $$__upstream_bzip2_prefix = "$(ZGZ_LIB)/upstream-bzip2/";|' pristine-bz2
+ 	$(MAKE) -C pit/suse-bzip2 PREFIX=$(PREFIX)
++	$(MAKE) -C pit/upstream-bzip2
++	sed -i s'|^my $$__upstream_bzip2_prefix.*|my $$__upstream_bzip2_prefix = "$(PKGLIBDIR)/upstream-bzip2/";|' pristine-bz2
  
  ZGZ_SOURCES = zgz/zgz.c zgz/gzip/*.c zgz/old-bzip2/*.c
  zgz/zgz: $(ZGZ_SOURCES)
-@@ -37,6 +39,9 @@ extra_install:
- 	install -d $(DESTDIR)$(ZGZ_LIB)/suse-bzip2
- 	install pit/suse-bzip2/bzip2 $(DESTDIR)$(ZGZ_LIB)/suse-bzip2
- 	install pit/suse-bzip2/libbz2* $(DESTDIR)$(ZGZ_LIB)/suse-bzip2
-+	install -d $(DESTDIR)$(ZGZ_LIB)/upstream-bzip2
-+	install pit/upstream-bzip2/bzip2 $(DESTDIR)$(ZGZ_LIB)/upstream-bzip2
-+	install pit/upstream-bzip2/libbz2* $(DESTDIR)$(ZGZ_LIB)/upstream-bzip2
+@@ -71,6 +73,9 @@ extra_install:
+ 	install -m 0644 *.1 $(DESTDIR)$(PREFIX)/share/man/man1
+ 	install -d $(DESTDIR)$(PKGLIBDIR)/suse-bzip2
+ 	install pit/suse-bzip2/bzip2 pit/suse-bzip2/libbz2* $(DESTDIR)$(PKGLIBDIR)/suse-bzip2
++	install -d $(DESTDIR)$(PKGLIBDIR)/upstream-bzip2
++	install pit/upstream-bzip2/bzip2 $(DESTDIR)$(PKGLIBDIR)/upstream-bzip2
++	install pit/upstream-bzip2/libbz2* $(DESTDIR)$(PKGLIBDIR)/upstream-bzip2
  
- extra_clean: pristine-tar.spec
- 	rm -f *.1 zgz/zgz
+ extra_clean:
+ 	$(MAKE) clean -C pit/suse-bzip2 PREFIX=$(PREFIX)
 diff --git a/pristine-bz2 b/pristine-bz2
-index 147ad86..dd9690c 100755
+index 53c42bc..7da6607 100755
 --- a/pristine-bz2
 +++ b/pristine-bz2
 @@ -91,7 +91,9 @@ use IO::Handle;

@@ -1,0 +1,44 @@
+From: Markus Lehtonen <markus.lehtonen@linux.intel.com>
+Date: Fri, 31 May 2013 11:01:05 +0300
+Subject: pristine-gz: obey the XDELTA_PROGRAM build parameter
+
+Change-Id: I571466bacc8b50a7b2d2c7681b4d7ab1083508ad
+Signed-off-by: Markus Lehtonen <markus.lehtonen@linux.intel.com>
+---
+ pristine-gz |    9 +++++++--
+ 1 file changed, 7 insertions(+), 2 deletions(-)
+
+diff --git a/pristine-gz b/pristine-gz
+index 3668256..00c0055 100755
+--- a/pristine-gz
++++ b/pristine-gz
+@@ -96,6 +96,11 @@ use File::Basename qw/basename/;
+ 
+ delete $ENV{GZIP};
+ 
++# The following assignment is potentially munged during the
++# build process to hold the value of XDELTA_PROGRAM
++# parameter as given to Makefile.PL.
++my $xdelta_program = "xdelta";
++
+ dispatch(
+ 	commands => {
+ 		usage => [\&usage],
+@@ -234,7 +239,7 @@ sub reproducegz {
+ 		else {
+ 			# generate a binary delta and see if this is the
+ 			# best variant so far
+-			my $ret=system("xdelta delta -0 --pristine $tempout $orig $tempdir/tmpdelta 2>/dev/null") >> 8;
++			my $ret=system("$xdelta_program delta -0 --pristine $tempout $orig $tempdir/tmpdelta 2>/dev/null") >> 8;
+ 			# xdelta exits 1 on success
+ 			if ($ret == 1) {
+ 				my $size=(stat("$tempdir/tmpdelta"))[7];
+@@ -297,7 +302,7 @@ sub gengz {
+ 		my $tempdir=tempdir();
+ 		my $tfile="$tempdir/".basename($file).".gz";
+ 		doit_redir($file, $tfile, @zgz);
+-		doit("xdelta", "patch", "--pristine", $delta->{delta}, $tfile, "$file.gz");
++		doit("$xdelta_program", "patch", "--pristine", $delta->{delta}, $tfile, "$file.gz");
+ 	}
+ 	else {
+ 		doit_redir("$file", "$file.gz", @zgz);

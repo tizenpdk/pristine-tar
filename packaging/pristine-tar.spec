@@ -1,6 +1,6 @@
 Name:       pristine-tar
 Summary:    Regenerate pristine tarballs
-Version:    1.26
+Version:    1.28
 Release:    0
 Group:      Development/Tools/Building
 License:    GPLv2
@@ -11,8 +11,7 @@ Patch0:     0001-Fix-libbz2.so-version-numbers.patch
 Patch1:     0002-openSUSE-HACK-add-upstream-bzip2-v1.0.6-sources.patch
 Patch2:     0003-openSUSE-HACK-modify-Makefile-in-upstream-bzip2.patch
 Patch3:     0004-openSUSE-HACK-enable-special-upstream-bzip2.patch
-Patch4:     0005-Fedora-HACK-use-custom-older-xdelta.patch
-Patch5:     0006-Add-.gbp.conf.patch
+Patch4:     0005-pristine-gz-obey-the-XDELTA_PROGRAM-build-parameter.patch
 Requires:   gzip
 Requires:   bzip2
 %if 0%{?suse_version} >= 1210
@@ -76,15 +75,14 @@ control.
 %if 0%{?suse_version}
 %patch3 -p1
 %endif
-# 0005-Fedora-HACK-use-custom-older-xdelta.patch
-%if 0%{?fedora}
+# 0005-pristine-gz-obey-the-XDELTA_PROGRAM-build-parameter.patch
 %patch4 -p1
-%endif
-# 0006-Add-.gbp.conf.patch
-%patch5 -p1
 
 %build
-perl Makefile.PL INSTALLDIRS=vendor PREFIX=%{_prefix}
+%if 0%{?fedora}
+%define makemaker_extraopts XDELTA_PROGRAM=xdelta1
+%endif
+perl Makefile.PL INSTALLDIRS=vendor PREFIX=%{_prefix} %{?makemaker_extraopts}
 
 make %{?jobs:-j%jobs}
 
@@ -92,22 +90,21 @@ make %{?jobs:-j%jobs}
 
 %install
 rm -rf %{buildroot}
-
 %make_install
 
-find %{buildroot}/usr/lib/zgz/ -name '*.a' | xargs rm
+find %{buildroot}/usr/lib/pristine-tar/ -name '*.a' | xargs rm
 
 # Run fdupes if building in openSUSE
 %if 0%{?suse_version}
-%fdupes -s %{buildroot}/usr/lib/zgz/
+%fdupes -s %{buildroot}/usr/lib/pristine-tar/
 %endif
+
 
 
 %files
 %defattr(-,root,root,-)
 %{_bindir}/*
-%dir /usr/lib/zgz/
-/usr/lib/zgz/*
+/usr/lib/pristine-tar
 %{perl_vendorlib}/*
 %{perl_archlib}/*
 %{_mandir}/man1/*.gz

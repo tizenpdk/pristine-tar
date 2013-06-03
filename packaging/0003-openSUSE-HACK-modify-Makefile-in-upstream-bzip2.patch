@@ -10,7 +10,7 @@ Gbp: Ignore
 Change-Id: Id74e43aa3d913d0cb52f3866d5434d5ff92f2aaf
 Signed-off-by: Markus Lehtonen <markus.lehtonen@linux.intel.com>
 ---
- pit/upstream-bzip2/Makefile |    3 +--
+ pit/upstream-bzip2/Makefile | 3 +--
  1 file changed, 1 insertion(+), 2 deletions(-)
 
 diff --git a/pit/upstream-bzip2/Makefile b/pit/upstream-bzip2/Makefile

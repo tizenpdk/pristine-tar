@@ -1,3 +1,13 @@
+pristine-tar (1.28-1) unstable; urgency=low
+
+  * Fixes Bug #998
+    - Mangle PAX headers when using posix tar format
+    - Use posix tar format by default
+    - implement tar format guessing
+  * change format to 3.0 (quilt)
+
+ -- Markus Lehtonen <markus.lehtonen@linux.intel.com>  Mon, 10 Jun 2013 11:26:45 +0300
+
 pristine-tar (1.28-0) unstable; urgency=low
 
   * Change to non-native: add RPM packaging files

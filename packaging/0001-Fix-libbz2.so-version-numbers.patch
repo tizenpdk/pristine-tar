@@ -5,9 +5,11 @@ Subject: Fix libbz2.so version numbers
 Fixes the .so version number for the suse-bzip2. Otherwise we may get an
 error from the dynamic linker when trying to run bzip2 from suse-bzip2.
 
+Gbp: Ignore
+
 Signed-off-by: Markus Lehtonen <markus.lehtonen@linux.intel.com>
 ---
- pit/suse-bzip2/Makefile |    4 ++--
+ pit/suse-bzip2/Makefile | 4 ++--
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/pit/suse-bzip2/Makefile b/pit/suse-bzip2/Makefile

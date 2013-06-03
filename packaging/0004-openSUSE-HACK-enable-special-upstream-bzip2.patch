@@ -13,8 +13,8 @@ Gbp: Ignore
 Change-Id: Icfcbee5207e65820248172152623a4dbf4440131
 Signed-off-by: Markus Lehtonen <markus.lehtonen@linux.intel.com>
 ---
- Makefile.PL  |    5 +++++
- pristine-bz2 |    4 +++-
+ Makefile.PL  | 5 +++++
+ pristine-bz2 | 4 +++-
  2 files changed, 8 insertions(+), 1 deletion(-)
 
 diff --git a/Makefile.PL b/Makefile.PL

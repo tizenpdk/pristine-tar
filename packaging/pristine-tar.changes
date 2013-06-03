@@ -1,3 +1,9 @@
+* Mon Jun 03 2013 Markus Lehtonen <markus.lehtonen@linux.intel.com> 1.28
+- Fixes Bug #998
+  * Mangle PAX headers when using posix tar format
+  * Use posix tar format by default
+  * implement tar format guessing
+
 * Mon May 13 2013 Markus Lehtonen <markus.lehtonen@linux.intel.com> 1.28
 - Version bump to 1.28
 

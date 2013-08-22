@@ -1,3 +1,9 @@
+pristine-tar (1.28-2) unstable; urgency=low
+
+  * Remove all timestamps from extended PAX headers of posix tarballs
+
+ -- Markus Lehtonen <markus.lehtonen@linux.intel.com>  Fri, 23 Aug 2013 11:28:41 +0300
+
 pristine-tar (1.28-1) unstable; urgency=low
 
   * Fixes Bug #998

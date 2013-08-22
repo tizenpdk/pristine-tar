@@ -1,4 +1,5 @@
-0005-pristine-gz-obey-the-XDELTA_PROGRAM-build-parameter.patch
-0007-implement-tar-format-guessing.patch
-0008-Use-posix-tar-format-by-default.patch
-0009-Mangle-PAX-headers-when-using-posix-tar-format.patch
+0001-pristine-gz-obey-the-XDELTA_PROGRAM-build-parameter.patch
+0002-implement-tar-format-guessing.patch
+0003-Use-posix-tar-format-by-default.patch
+0004-Mangle-PAX-headers-when-using-posix-tar-format.patch
+0005-Remove-all-timestamps-from-extended-PAX-headers.patch

@@ -16,6 +16,7 @@ Patch5:     0006-Add-.gbp.conf.patch
 Patch6:     0007-implement-tar-format-guessing.patch
 Patch7:     0008-Use-posix-tar-format-by-default.patch
 Patch8:     0009-Mangle-PAX-headers-when-using-posix-tar-format.patch
+Patch9:     0010-Remove-all-timestamps-from-extended-PAX-headers.patch
 Requires:   gzip
 Requires:   bzip2
 %if 0%{?suse_version} >= 1210
@@ -89,6 +90,8 @@ control.
 %patch7 -p1
 # 0009-Mangle-PAX-headers-when-using-posix-tar-format.patch
 %patch8 -p1
+# 0010-Remove-all-timestamps-from-extended-PAX-headers.patch
+%patch9 -p1
 
 %build
 %if 0%{?fedora}

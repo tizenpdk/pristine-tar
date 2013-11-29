@@ -1,3 +1,11 @@
+pristine-tar (1.28-3) unstable; urgency=low
+
+  * Workaround for broken pristine-tar branches in Tizen
+    Makes it possible to checkout tarballs from certain broken pristine-tar
+    branches created with buggy versions of Tizen pristine-tar on openSUSE.
+
+ -- Markus Lehtonen <markus.lehtonen@linux.intel.com>  Fri, 29 Nov 2013 15:07:41 +0200
+
 pristine-tar (1.28-2) unstable; urgency=low
 
   * Remove all timestamps from extended PAX headers of posix tarballs

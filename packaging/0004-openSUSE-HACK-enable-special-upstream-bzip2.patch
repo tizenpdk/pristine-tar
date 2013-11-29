@@ -7,15 +7,15 @@ This is a hack for openSUSE that makes pristine-bz2 use a special
 is unable to re-create/gendelta bz2 archives created by other
 distributions.
 
-Gbp-Rpm: If 0%{?suse_version}
+Gbp-Rpm: If 0%{?suse_version} && 0%{?suse_version} < 1220
 Gbp: Ignore
 
 Change-Id: Icfcbee5207e65820248172152623a4dbf4440131
 Signed-off-by: Markus Lehtonen <markus.lehtonen@linux.intel.com>
 ---
- Makefile.PL  | 5 +++++
- pristine-bz2 | 4 +++-
- 2 files changed, 8 insertions(+), 1 deletion(-)
+ Makefile.PL  |  5 +++++
+ pristine-bz2 | 12 +++++++++++-
+ 2 files changed, 16 insertions(+), 1 deletion(-)
 
 diff --git a/Makefile.PL b/Makefile.PL
 index 60a5103..8a2fe1c 100755
@@ -41,17 +41,39 @@ index 60a5103..8a2fe1c 100755
  extra_clean:
  	$(MAKE) clean -C pit/suse-bzip2 PREFIX=$(PREFIX)
 diff --git a/pristine-bz2 b/pristine-bz2
-index 53c42bc..7da6607 100755
+index 53c42bc..dbbe319 100755
 --- a/pristine-bz2
 +++ b/pristine-bz2
-@@ -91,7 +91,9 @@ use IO::Handle;
+@@ -91,6 +91,8 @@ use IO::Handle;
  delete $ENV{BZIP};
  delete $ENV{BZIP2};
  
--my @supported_bzip2_programs = qw(bzip2 pbzip2 zgz);
 +my $__upstream_bzip2_prefix = "";
 +
-+my @supported_bzip2_programs = ("${__upstream_bzip2_prefix}bzip2",  "pbzip2", "zgz");
+ my @supported_bzip2_programs = qw(bzip2 pbzip2 zgz);
  
  my $try=0;
+@@ -169,7 +171,12 @@ sub testvariant {
  
+ 	# try bzip2'ing with the arguments passed
+ 	if ($bzip2_program ne 'zgz') {
+-		doit($bzip2_program, @args, $tmpin);
++		if ($bzip2_program eq 'bzip2') {
++			doit("$__upstream_bzip2_prefix/bzip2", @args, $tmpin);
++		}
++		else {
++			doit($bzip2_program, @args, $tmpin);
++		}
+ 	}
+ 	else {
+ 		doit_redir($tmpin, $new, $bzip2_program, @args);
+@@ -264,6 +271,9 @@ sub genbz2 {
+ 		# unlike bzip2, zgz only uses stdio
+ 		doit_redir($file, "$file.bz2", $program, @params);
+ 	}
++	elsif ($program eq 'bzip2') {
++		doit("$__upstream_bzip2_prefix/bzip2", @params, $file);
++	}
+ 	else {
+ 		doit($program, @params, $file);
+ 	}

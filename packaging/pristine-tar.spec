@@ -16,7 +16,7 @@ Patch5:     0006-Add-.gbp.conf.patch
 Patch6:     0007-implement-tar-format-guessing.patch
 Patch7:     0008-Use-posix-tar-format-by-default.patch
 Patch8:     0009-Mangle-PAX-headers-when-using-posix-tar-format.patch
-Patch9:     0010-Remove-all-timestamps-from-extended-PAX-headers.patch
+Patch9:     0010-HACK-workaround-for-some-broken-pristine-tar-branche.patch
 Requires:   gzip
 Requires:   bzip2
 %if 0%{?suse_version} >= 1210
@@ -69,15 +69,15 @@ control.
 # 0001-Fix-libbz2.so-version-numbers.patch
 %patch0 -p1
 # 0002-openSUSE-HACK-add-upstream-bzip2-v1.0.6-sources.patch
-%if 0%{?suse_version}
+%if 0%{?suse_version} && 0%{?suse_version} < 1220
 %patch1 -p1
 %endif
 # 0003-openSUSE-HACK-modify-Makefile-in-upstream-bzip2.patch
-%if 0%{?suse_version}
+%if 0%{?suse_version} && 0%{?suse_version} < 1220
 %patch2 -p1
 %endif
 # 0004-openSUSE-HACK-enable-special-upstream-bzip2.patch
-%if 0%{?suse_version}
+%if 0%{?suse_version} && 0%{?suse_version} < 1220
 %patch3 -p1
 %endif
 # 0005-pristine-gz-obey-the-XDELTA_PROGRAM-build-parameter.patch
@@ -90,7 +90,7 @@ control.
 %patch7 -p1
 # 0009-Mangle-PAX-headers-when-using-posix-tar-format.patch
 %patch8 -p1
-# 0010-Remove-all-timestamps-from-extended-PAX-headers.patch
+# 0010-HACK-workaround-for-some-broken-pristine-tar-branche.patch
 %patch9 -p1
 
 %build

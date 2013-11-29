@@ -1,3 +1,8 @@
+* Fri Nov 29 2013 Markus Lehtonen <markus.lehtonen@linux.intel.com> 1.28
+- Workaround for broken pristine-tar branches in Tizen
+  Makes it possible to checkout tarballs from certain broken pristine-tar
+  branches created with buggy versions of Tizen pristine-tar on openSUSE.
+
 * Fri Aug 23 2013 Markus Lehtonen <markus.lehtonen@linux.intel.com> 1.28
 - Remove all timestamps from extended PAX headers of posix tarballs
 

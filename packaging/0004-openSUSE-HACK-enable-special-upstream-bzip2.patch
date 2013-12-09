@@ -18,7 +18,7 @@ Signed-off-by: Markus Lehtonen <markus.lehtonen@linux.intel.com>
  2 files changed, 16 insertions(+), 1 deletion(-)
 
 diff --git a/Makefile.PL b/Makefile.PL
-index 60a5103..8a2fe1c 100755
+index 904d6ce..e64459a 100755
 --- a/Makefile.PL
 +++ b/Makefile.PL
 @@ -59,6 +59,8 @@ extra_build: zgz/zgz pristine-tar.spec
@@ -41,7 +41,7 @@ index 60a5103..8a2fe1c 100755
  extra_clean:
  	$(MAKE) clean -C pit/suse-bzip2 PREFIX=$(PREFIX)
 diff --git a/pristine-bz2 b/pristine-bz2
-index 53c42bc..dbbe319 100755
+index c2403ff..411e990 100755
 --- a/pristine-bz2
 +++ b/pristine-bz2
 @@ -91,6 +91,8 @@ use IO::Handle;

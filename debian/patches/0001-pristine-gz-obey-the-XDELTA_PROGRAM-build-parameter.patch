@@ -9,7 +9,7 @@ Signed-off-by: Markus Lehtonen <markus.lehtonen@linux.intel.com>
  1 file changed, 7 insertions(+), 2 deletions(-)
 
 diff --git a/pristine-gz b/pristine-gz
-index 3668256..00c0055 100755
+index 5ca9f65..973c7fb 100755
 --- a/pristine-gz
 +++ b/pristine-gz
 @@ -96,6 +96,11 @@ use File::Basename qw/basename/;

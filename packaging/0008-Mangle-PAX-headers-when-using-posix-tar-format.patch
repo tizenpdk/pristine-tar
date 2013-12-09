@@ -17,10 +17,10 @@ Signed-off-by: Markus Lehtonen <markus.lehtonen@linux.intel.com>
  1 file changed, 5 insertions(+)
 
 diff --git a/pristine-tar b/pristine-tar
-index f1fae98..19af965 100755
+index d36e51b..4421068 100755
 --- a/pristine-tar
 +++ b/pristine-tar
-@@ -357,6 +357,11 @@ sub recreatetarball_helper {
+@@ -378,6 +378,11 @@ sub recreatetarball_helper {
              "--files-from", "$tempdir/manifest");
  	if (exists $options{tar_format}) {
  		push @cmd, ("-H", $options{tar_format});

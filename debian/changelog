@@ -1,3 +1,9 @@
+pristine-tar (1.30-tizen20131209) UNRELEASED; urgency=low
+
+  * Tizen tools version based on upstream 1.30
+
+ -- Markus Lehtonen <markus.lehtonen@linux.intel.com>  Mon, 09 Dec 2013 11:28:44 +0200
+
 pristine-tar (1.30) unstable; urgency=low
 
   * Set GIT_WORK_TREE when committing to make it work when inside

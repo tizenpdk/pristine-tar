@@ -1,6 +1,6 @@
 Name:       pristine-tar
 Summary:    Regenerate pristine tarballs
-Version:    1.28
+Version:    1.30
 Release:    0
 Group:      Development/Tools/Building
 License:    GPLv2
@@ -13,10 +13,9 @@ Patch2:     0003-openSUSE-HACK-modify-Makefile-in-upstream-bzip2.patch
 Patch3:     0004-openSUSE-HACK-enable-special-upstream-bzip2.patch
 Patch4:     0005-pristine-gz-obey-the-XDELTA_PROGRAM-build-parameter.patch
 Patch5:     0006-Add-.gbp.conf.patch
-Patch6:     0007-implement-tar-format-guessing.patch
-Patch7:     0008-Use-posix-tar-format-by-default.patch
-Patch8:     0009-Mangle-PAX-headers-when-using-posix-tar-format.patch
-Patch9:     0010-HACK-workaround-for-some-broken-pristine-tar-branche.patch
+Patch6:     0007-Use-posix-tar-format-by-default.patch
+Patch7:     0008-Mangle-PAX-headers-when-using-posix-tar-format.patch
+Patch8:     0009-HACK-workaround-for-some-broken-pristine-tar-branche.patch
 Requires:   gzip
 Requires:   bzip2
 %if 0%{?suse_version} >= 1210
@@ -44,7 +43,7 @@ BuildRequires:  fdupes
 # Need to define these manually because otherwise rpmbuild makes the package
 # provide libbz2.so which breaks building of other tools
 AutoProv:   no
-Provides: tizen-pristine-tar = 20131205
+Provides: tizen-pristine-tar = 20131209
 Provides: perl(Pristine::Tar)
 Provides: perl(Pristine::Tar::Delta)
 Provides: perl(Pristine::Tar::Delta::Tarball)
@@ -85,14 +84,12 @@ control.
 %patch4 -p1
 # 0006-Add-.gbp.conf.patch
 %patch5 -p1
-# 0007-implement-tar-format-guessing.patch
+# 0007-Use-posix-tar-format-by-default.patch
 %patch6 -p1
-# 0008-Use-posix-tar-format-by-default.patch
+# 0008-Mangle-PAX-headers-when-using-posix-tar-format.patch
 %patch7 -p1
-# 0009-Mangle-PAX-headers-when-using-posix-tar-format.patch
+# 0009-HACK-workaround-for-some-broken-pristine-tar-branche.patch
 %patch8 -p1
-# 0010-HACK-workaround-for-some-broken-pristine-tar-branche.patch
-%patch9 -p1
 
 %build
 %if 0%{?fedora}

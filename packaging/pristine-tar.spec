@@ -16,6 +16,11 @@ Patch5:     0006-Add-.gbp.conf.patch
 Patch6:     0007-Use-posix-tar-format-by-default.patch
 Patch7:     0008-Mangle-PAX-headers-when-using-posix-tar-format.patch
 Patch8:     0009-HACK-workaround-for-some-broken-pristine-tar-branche.patch
+%if 0%{?fedora} || 0%{?centos_version}
+Requires:   tar < 2:1.27
+%else
+Requires:   tar < 1.27
+%endif
 Requires:   gzip
 Requires:   bzip2
 %if 0%{?suse_version} >= 1210

@@ -1,3 +1,28 @@
+pristine-tar (1.30) unstable; urgency=low
+
+  * Set GIT_WORK_TREE when committing to make it work when inside
+    a git submodule. Thanks, Victor Vasiliev. Closes: #726007
+  * Work around change in longlink fields in tar 1.27,
+    and depend on version -3 which adds PRISTINE_TAR_COMPAT.
+    Closes: #726963
+
+ -- Joey Hess <joeyh@debian.org>  Sun, 03 Nov 2013 13:33:22 -0400
+
+pristine-tar (1.29) unstable; urgency=low
+
+  * Fix display of unsupported param when paranoia check fails.
+    Closes: #707820
+  * pristine-tar: If recreating the tarball fails, try telling
+    tar to generate a gnu or posix format tarball. This may
+    have been the default format used by tar when the delta file
+    was originally generated.
+    Thanks, Markus Lehtonen.
+  * Improve handling of escaped characters in filenames listed by
+    tar -t. Closes: #719078
+    Thanks, Chow Loong Jin
+
+ -- Joey Hess <joeyh@debian.org>  Mon, 26 Aug 2013 11:54:08 -0400
+
 pristine-tar (1.28-tizen20131205) unstable; urgency=low
 
   * Workaround for broken pristine-tar branches in Tizen

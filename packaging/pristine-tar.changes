@@ -1,3 +1,6 @@
+* Thu Feb 27 2014 Markus Lehtonen <markus.lehtonen@linux.intel.com> 1.30
+- Version bump to 1.30
+
 * Fri Nov 29 2013 Markus Lehtonen <markus.lehtonen@linux.intel.com> 1.28
 - Workaround for broken pristine-tar branches in Tizen
   Makes it possible to checkout tarballs from certain broken pristine-tar

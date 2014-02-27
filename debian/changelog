@@ -1,8 +1,12 @@
-pristine-tar (1.30-tizen20131209) UNRELEASED; urgency=low
+pristine-tar (1.30-tizen20140227) unstable; urgency=low
 
-  * Tizen tools version based on upstream 1.30
+  * Version bump to 1.30.
+  * packaging: change dependency to tar.
+    Require tar < 1.27 for now - the Debian PRISTINE_TAR_COMPAT patch for tar
+    to cope with tar file format changes is not generally available in other
+    distributions than Debian.
 
- -- Markus Lehtonen <markus.lehtonen@linux.intel.com>  Mon, 09 Dec 2013 11:28:44 +0200
+ -- Markus Lehtonen <markus.lehtonen@linux.intel.com>  Thu, 27 Feb 2014 10:41:32 +0200
 
 pristine-tar (1.30) unstable; urgency=low
 

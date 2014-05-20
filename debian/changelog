@@ -1,3 +1,10 @@
+pristine-tar (1.31) unstable; urgency=medium
+
+  * Build on Hurd without needing PATH_MAX defined. Closes: #738670
+    Thanks, Svante Signell
+
+ -- Joey Hess <joeyh@debian.org>  Wed, 23 Apr 2014 14:01:03 -0400
+
 pristine-tar (1.30-tizen20140227) unstable; urgency=low
 
   * Version bump to 1.30.

@@ -1,3 +1,9 @@
+pristine-tar (1.31-tizen20140520) UNRELEASED; urgency=low
+
+  * Version bump to 1.31.
+
+ -- Markus Lehtonen <markus.lehtonen@linux.intel.com>  Tue, 20 May 2014 12:24:28 +0300
+
 pristine-tar (1.31) unstable; urgency=medium
 
   * Build on Hurd without needing PATH_MAX defined. Closes: #738670

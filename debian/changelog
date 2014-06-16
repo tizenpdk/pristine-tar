@@ -1,3 +1,9 @@
+pristine-tar (1.32) unstable; urgency=medium
+
+  * Orphaned the package.
+
+ -- Joey Hess <joeyh@debian.org>  Tue, 27 May 2014 16:00:42 -0400
+
 pristine-tar (1.31-tizen20140520) UNRELEASED; urgency=low
 
   * Version bump to 1.31.

@@ -1,3 +1,10 @@
+pristine-tar (1.32-tizen20140616) UNRELEASED; urgency=low
+
+  [ Markus Lehtonen ]
+  * Version bump to 1.32.
+
+ -- Joey Hess <joey@kitenet.net>  Mon, 16 Jun 2014 17:41:15 +0300
+
 pristine-tar (1.32) unstable; urgency=medium
 
   * Orphaned the package.

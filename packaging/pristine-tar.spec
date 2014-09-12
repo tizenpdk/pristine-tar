@@ -16,7 +16,7 @@ Patch5:     0006-Add-.gbp.conf.patch
 Patch6:     0007-Use-posix-tar-format-by-default.patch
 Patch7:     0008-Mangle-PAX-headers-when-using-posix-tar-format.patch
 Patch8:     0009-HACK-workaround-for-some-broken-pristine-tar-branche.patch
-%if 0%{?fedora} || 0%{?centos_version}
+%if 0%{?fedora} || 0%{?centos_version} || 0%{?centos_ver}
 Requires:   tar < 2:1.27
 %else
 Requires:   tar < 1.27
@@ -34,7 +34,7 @@ Requires:   perl-base
 %else
 Requires:   perl
 %endif
-%if 0%{?fedora}
+%if 0%{?fedora} || 0%{?centos_ver} >= 7
 Requires:   xdelta1
 %else
 Requires:   xdelta < 3
@@ -97,7 +97,7 @@ control.
 %patch8 -p1
 
 %build
-%if 0%{?fedora}
+%if 0%{?fedora} || 0%{?centos_ver} >= 7
 %define makemaker_extraopts XDELTA_PROGRAM=xdelta1
 %endif
 perl Makefile.PL INSTALLDIRS=vendor PREFIX=%{_prefix} %{?makemaker_extraopts}

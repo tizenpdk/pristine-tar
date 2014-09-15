@@ -1,5 +1,6 @@
-* Mon Jun 16 2014 Markus Lehtonen <markus.lehtonen@linux.intel.com> tizen/1.31-20140520-2-g8ff0c08
+* Mon Sep 15 2014 Markus Lehtonen <markus.lehtonen@linux.intel.com> tizen/1.32-20140915
 - Version bump to 1.32
+- rpm packaging: fix build for CentOS 7
 
 * Tue May 20 2014 Markus Lehtonen <markus.lehtonen@linux.intel.com> tizen/1.31-20140520
 - Version bump to 1.31

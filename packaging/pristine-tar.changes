@@ -1,3 +1,8 @@
+* Thu Feb 12 2015 Markus Lehtonen <markus.lehtonen@linux.intel.com> tizen/1.32-20150212
+- Relax the tar dependency by allowing any version of tar to be used.
+  It turned out that in Tizen we do not have the problem the version
+  restriction was originally put for.
+
 * Mon Sep 15 2014 Markus Lehtonen <markus.lehtonen@linux.intel.com> tizen/1.32-20140915
 - Version bump to 1.32
 - rpm packaging: fix build for CentOS 7

@@ -1,3 +1,9 @@
+pristine-tar (1.32-tizen20150212) unstable; urgency=low
+
+  * rpm packaging: allow any version of tar
+
+ -- Markus Lehtonen <markus.lehtonen@linux.intel.com>  Thu, 12 Feb 2015 12:10:39 +0200
+
 pristine-tar (1.32-tizen20140915) unstable; urgency=low
 
   [ Markus Lehtonen ]

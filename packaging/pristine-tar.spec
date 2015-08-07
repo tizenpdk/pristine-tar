@@ -1,6 +1,6 @@
 Name:       pristine-tar
 Summary:    Regenerate pristine tarballs
-Version:    1.30
+Version:    1.33
 Release:    0
 Group:      Development/Tools/Building
 License:    GPLv2
@@ -48,7 +48,7 @@ BuildRequires:  fdupes
 # Need to define these manually because otherwise rpmbuild makes the package
 # provide libbz2.so which breaks building of other tools
 AutoProv:   no
-Provides: tizen-pristine-tar = 20140227
+Provides: tizen-pristine-tar = 20150807
 Provides: perl(Pristine::Tar)
 Provides: perl(Pristine::Tar::Delta)
 Provides: perl(Pristine::Tar::Delta::Tarball)

@@ -12,7 +12,7 @@ Patch1:     0002-openSUSE-HACK-add-upstream-bzip2-v1.0.6-sources.patch
 Patch2:     0003-openSUSE-HACK-modify-Makefile-in-upstream-bzip2.patch
 Patch3:     0004-openSUSE-HACK-enable-special-upstream-bzip2.patch
 Patch4:     0005-pristine-gz-obey-the-XDELTA_PROGRAM-build-parameter.patch
-Patch5:     0006-Add-.gbp.conf.patch
+#Patch5:     0006-Add-.gbp.conf.patch
 Patch6:     0007-Use-posix-tar-format-by-default.patch
 Patch7:     0008-Mangle-PAX-headers-when-using-posix-tar-format.patch
 Patch8:     0009-HACK-workaround-for-some-broken-pristine-tar-branche.patch
@@ -84,7 +84,7 @@ control.
 # 0005-pristine-gz-obey-the-XDELTA_PROGRAM-build-parameter.patch
 %patch4 -p1
 # 0006-Add-.gbp.conf.patch
-%patch5 -p1
+#%patch5 -p1
 # 0007-Use-posix-tar-format-by-default.patch
 %patch6 -p1
 # 0008-Mangle-PAX-headers-when-using-posix-tar-format.patch

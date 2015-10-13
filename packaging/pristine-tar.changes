@@ -1,3 +1,6 @@
+* Tue Oct 13 2015 Rong Jinhui <jinhui.rong@samsung.com> 1.33
+- Version bump to 1.33
+
 * Thu Feb 12 2015 Markus Lehtonen <markus.lehtonen@linux.intel.com> tizen/1.32-20150212
 - Relax the tar dependency by allowing any version of tar to be used.
   It turned out that in Tizen we do not have the problem the version

@@ -36,7 +36,12 @@ Requires:   xdelta1
 Requires:   xdelta < 3
 %endif
 BuildRequires:  pkgconfig(zlib)
+
+%if 0%{?suse_version} >= 1320
+#BuildRequires:  perl(ExtUtils::MakeMaker)
+%else
 BuildRequires:  perl(ExtUtils::MakeMaker)
+%endif
 %if 0%{?suse_version}
 BuildRequires:  fdupes
 %endif

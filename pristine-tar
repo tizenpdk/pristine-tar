@@ -197,7 +197,7 @@ $ENV{PRISTINE_TAR_COMPAT}=1;
 # build process to hold the values of TAR_PROGRAM and XDELTA_PROGRAM
 # parameters as given to Makefile.PL.
 my $tar_program = "tar";
-my $xdelta_program = "xdelta";
+my $xdelta_program = "xdelta3";
 
 my $message;
 
@@ -427,7 +427,7 @@ sub gentar {
 	my $ok;
 	foreach my $variant (@try) {
 		my $recreatetarball=$variant->();
-		my $ret=try_doit($xdelta_program, "patch", $delta->{delta}, $recreatetarball, $out);
+		my $ret=system("$xdelta_program -d -s $recreatetarball $delta->{delta} $out") >> 8;
 		if ($ret == 0) {
 			$ok=1;
 			last;
@@ -539,7 +539,7 @@ sub gendelta {
 	}
 
 	$delta{delta}="$tempdir/delta";
-	my $ret=system("$xdelta_program delta -0 --pristine $recreatetarball $tarball $delta{delta}") >> 8;
+	my $ret=system("$xdelta_program -0 -e -s $recreatetarball $tarball $delta{delta}") >> 8;
 	# xdelta exits 1 on success if there were differences
 	if ($ret != 1 && $ret != 0) {
 		error "xdelta failed with return code $ret";

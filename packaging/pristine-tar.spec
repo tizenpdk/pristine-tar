@@ -1,6 +1,6 @@
 Name:       pristine-tar
 Summary:    Regenerate pristine tarballs
-Version:    1.33
+Version:    1.34
 Release:    0
 Group:      Development/Tools/Building
 License:    GPLv2
@@ -31,9 +31,9 @@ Requires:   perl-base
 Requires:   perl
 %endif
 %if 0%{?fedora} || 0%{?centos_ver} >= 7
-Requires:   xdelta1
+Requires:   xdelta
 %else
-Requires:   xdelta < 3
+Requires:   xdelta3
 %endif
 BuildRequires:  pkgconfig(zlib)
 
@@ -99,7 +99,7 @@ control.
 
 %build
 %if 0%{?fedora} || 0%{?centos_ver} >= 7
-%define makemaker_extraopts XDELTA_PROGRAM=xdelta1
+%define makemaker_extraopts XDELTA_PROGRAM=xdelta
 %endif
 perl Makefile.PL INSTALLDIRS=vendor PREFIX=%{_prefix} %{?makemaker_extraopts}
 

@@ -49,7 +49,7 @@ BuildRequires:  fdupes
 # Need to define these manually because otherwise rpmbuild makes the package
 # provide libbz2.so which breaks building of other tools
 AutoProv:   no
-Provides: tizen-pristine-tar = 20150212
+Provides: tizen-pristine-tar = 20160517
 Provides: perl(Pristine::Tar)
 Provides: perl(Pristine::Tar::Delta)
 Provides: perl(Pristine::Tar::Delta::Tarball)

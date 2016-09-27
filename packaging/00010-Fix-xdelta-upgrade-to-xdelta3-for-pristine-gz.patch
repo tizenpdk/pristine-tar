@@ -1,0 +1,39 @@
+From 77a7c2e9ad4c0a1f51451d0c11e507c513fba652 Mon Sep 17 00:00:00 2001
+From: yang.zhang <y0169.zhang@samsung.com>
+Date: Wed, 27 Jul 2016 13:55:14 +0800
+Subject: [PATCH] Fix xdelta upgrade to xdelta3 for pristine-gz
+
+Change-Id: I4fcb088918dafe1d2c2946f04f8308271df9b74c
+---
+
+diff --git a/pristine-gz b/pristine-gz
+index 5ca9f65..d0ebb48 100755
+--- a/pristine-gz
++++ b/pristine-gz
+@@ -96,6 +96,8 @@
+ 
+ delete $ENV{GZIP};
+ 
++my $xdelta_program = "xdelta3";
++
+ dispatch(
+ 	commands => {
+ 		usage => [\&usage],
+@@ -234,7 +236,7 @@
+ 		else {
+ 			# generate a binary delta and see if this is the
+ 			# best variant so far
+-			my $ret=system("xdelta delta -0 --pristine $tempout $orig $tempdir/tmpdelta 2>/dev/null") >> 8;
++			my $ret=system("$xdelta_program -0 -e -s $tempout $orig $tempdir/tmpdelta 2>/dev/null") >> 8;
+ 			# xdelta exits 1 on success
+ 			if ($ret == 1) {
+ 				my $size=(stat("$tempdir/tmpdelta"))[7];
+@@ -297,7 +299,7 @@
+ 		my $tempdir=tempdir();
+ 		my $tfile="$tempdir/".basename($file).".gz";
+ 		doit_redir($file, $tfile, @zgz);
+-		doit("xdelta", "patch", "--pristine", $delta->{delta}, $tfile, "$file.gz");
++		my $ret=system("$xdelta_program -d -s $tfile $delta->{delta} $file.gz");
+ 	}
+ 	else {
+ 		doit_redir("$file", "$file.gz", @zgz);

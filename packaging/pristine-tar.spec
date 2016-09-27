@@ -16,6 +16,7 @@ Patch4:     0005-pristine-gz-obey-the-XDELTA_PROGRAM-build-parameter.patch
 Patch6:     0007-Use-posix-tar-format-by-default.patch
 Patch7:     0008-Mangle-PAX-headers-when-using-posix-tar-format.patch
 Patch8:     0009-HACK-workaround-for-some-broken-pristine-tar-branche.patch
+Patch9:     00010-Fix-xdelta-upgrade-to-xdelta3-for-pristine-gz.patch
 Requires:   tar
 Requires:   gzip
 Requires:   bzip2
@@ -87,7 +88,7 @@ control.
 %patch3 -p1
 %endif
 # 0005-pristine-gz-obey-the-XDELTA_PROGRAM-build-parameter.patch
-%patch4 -p1
+#%patch4 -p1
 # 0006-Add-.gbp.conf.patch
 #%patch5 -p1
 # 0007-Use-posix-tar-format-by-default.patch
@@ -96,6 +97,8 @@ control.
 %patch7 -p1
 # 0009-HACK-workaround-for-some-broken-pristine-tar-branche.patch
 %patch8 -p1
+# 00010-Fix-xdelta-upgrade-to-xdelta3-for-pristine-gz.patch
+%patch9 -p1
 
 %build
 %if 0%{?fedora} || 0%{?centos_ver} >= 7

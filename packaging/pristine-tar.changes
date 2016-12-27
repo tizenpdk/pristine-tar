@@ -1,3 +1,8 @@
+* Sat Dec 31 2016 SoonKyu Park <sk7.park@samsung.com> 1.35
+- Version bump to 1.35
+- Fix xdelta upgrade to xdelta3 but left pristine-gz
+- Add debian ignore and packaging ignore in .gbp.conf
+
 * Tue Oct 13 2015 Rong Jinhui <jinhui.rong@samsung.com> 1.33
 - Version bump to 1.33
 

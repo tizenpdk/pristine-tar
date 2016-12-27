@@ -1,3 +1,11 @@
+pristine-tar (1.35-tizen20161231) unstable; urgency=low
+
+  * Version bump to 1.35
+  * Fix xdelta upgrade to xdelta3 but left pristine-gz
+  * Add debian ignore and packaging ignore in .gbp.conf
+
+ -- SoonKyu Park <sk7.park@samsung.com>  Sat, 31 Dec 2016 19:30:00 +0200
+
 pristine-tar (1.34-tizen20160517) unstable; urgency=low
 
   * Version bump to 1.34
